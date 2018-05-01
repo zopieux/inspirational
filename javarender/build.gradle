@@ -1,0 +1,26 @@
+group 'eu.zopi'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
+    compile group: 'org.imgscalr', name: 'imgscalr-lib', version: '4.2'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'Render'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+

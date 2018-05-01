@@ -1,0 +1,10 @@
+.venv/
+.idea/
+.gradle/
+images/
+fonts/
+javarender/out
+javarender/build
+javarender/
+javarender/gradle*
+
